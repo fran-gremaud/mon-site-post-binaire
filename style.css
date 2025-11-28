@@ -19,16 +19,34 @@ body {
   font-feature-settings: "liga" 1, "dlig" 1, "salt" 1;
 }
 .page {
-  max-width: 700px;
+  max-width: 680px;
   margin: 120px auto;
-  padding: 40px;
+  padding: 48px;
+
+  background-color: #ffffff;      /* fond blanc */
+  border: 6px solid #000000;      /* encadré noir épais */
+
+  box-shadow: 12px 12px 0 #000;   /* ombre dure en bas à droite */
 }
+
 
 .titre {
   font-size: 48px;
   margin-bottom: 40px;
+  color: #ff2fa3; /* même rose fluo que le fond */
 }
 
 .texte {
   font-size: 22px;
+  color: #ff2fa3; /* texte rose fluo sur fond blanc */
+}
+
+.page {
+  position: relative;
+  top: -10px;
+  left: -10px;
+}
+.site-header,
+.site-footer {
+  color: #ffffff;
 }
