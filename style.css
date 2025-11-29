@@ -140,12 +140,28 @@ body {
 
 #intro-enter.visible {
   opacity: 1;
-  animation: idle-pulse 1.6s steps(2) infinite;
+  animation: idle-pulse 2.4s ease-in-out infinite;
+}
+
+@keyframes idle-pulse {
+  0%   { color: hotpink; }
+  50%  { color: white; }
+  100% { color: hotpink; }
 }
 
 #intro-enter:hover {
-  animation: hover-glitch-color 0.3s steps(2) infinite;
+  animation: hover-chaos 0.15s steps(2) infinite;
 }
+
+@keyframes hover-chaos {
+  0%   { transform: translate(0, 0);   color: hotpink; }
+  20%  { transform: translate(-3px, 2px); color: #00c8ff; }
+  40%  { transform: translate(3px, -2px); color: white; }
+  60%  { transform: translate(-2px, -1px); color: hotpink; }
+  80%  { transform: translate(2px, 1px);  color: #00c8ff; }
+  100% { transform: translate(0, 0);   color: white; }
+}
+
 
 /* =========================================================
    GLITCH ÉCRAN
