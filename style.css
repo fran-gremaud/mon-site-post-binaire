@@ -272,3 +272,31 @@ intro-enter.visible {
 #glitch-screen.active {
   opacity: 1;
 }
+
+#intro-enter {
+  opacity: 0;
+  margin-top: 32px;
+  font-size: 1em;              /* même taille que le texte */
+  font-family: inherit;       /* même police */
+  color: hotpink;             /* rose au repos */
+  text-decoration: none;
+  cursor: pointer;
+  transition: opacity 0.2s steps(2);
+}
+
+/* Apparition + pulsation au repos */
+#intro-enter.visible {
+  opacity: 1;
+  animation: idle-pulse 1.6s steps(2) infinite;
+}
+
+/* Pulsation rose ↔ blanc */
+@keyframes idle-pulse {
+  0%   { color: hotpink; }
+  50%  { color: white; }
+  100% { color: hotpink; }
+}
+
+
+
+
