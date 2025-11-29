@@ -167,3 +167,10 @@ body {
 .site-footer a:hover {
   opacity: 0.7;
 }
+
+/* Aligner le ">" à droite de la dernière ligne */
+.arrow-line {
+  display: block;
+  text-align: right;
+}
+
