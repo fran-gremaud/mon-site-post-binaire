@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>franxx</title>
+  <link rel="stylesheet" href="style.css">
+
+  <script>
+    setTimeout(function () {
+      window.location.href = "home.html";
+    }, 3500); // 3,5 secondes
+  </script>
+</head>
+<body>
+
+  <div class="page">
+    <p class="post-binaire-texte texte">
+    "j’ai commencé à écrire pour essayer de trouver le chemin des temples cachés sur mes îles intérieures et dont j’ignore encore, un jour sur deux, la voie d’accès. le soleil peut aider, la lune aussi mais le monde tangible 
+    — celui que beaucoup appelle "le vrai" — est une vraie plaie : il bourdonne trop fort et ne fait pas beaucoup de miel."<br>
+    <br>
+    </p>
+  </div>
+
+</body>
+</html>
