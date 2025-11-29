@@ -187,5 +187,25 @@ body {
   transform: translateX(8px);
 }
 
+#intro-enter:hover {
+  animation: hover-glitch 0.25s steps(2);
+}
 
+@keyframes hover-glitch {
+  0%   { transform: translateX(0); }
+  20%  { transform: translateX(-2px); }
+  40%  { transform: translateX(2px); }
+  60%  { transform: translateX(-1px); }
+  80%  { transform: translateX(1px); }
+  100% { transform: translateX(0); }
+}
+intro-enter.visible {
+  opacity: 1;
+  animation: idle-pulse 1.8s steps(2) infinite;
+}
 
+@keyframes idle-pulse {
+  0%   { opacity: 1; }
+  50%  { opacity: 0.6; }
+  100% { opacity: 1; }
+}
