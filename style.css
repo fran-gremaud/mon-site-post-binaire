@@ -240,3 +240,12 @@ body {
   80%  { transform: translate(1px, 1px); color: hotpink; }
   100% { transform: translate(0, 0); color: #00c8ff; }
 }
+
+/* ===== AJUSTEMENT CADRE INTRO ===== */
+
+.page.intro-wrapper {
+  margin-top: 60px;     /* au lieu de 120px */
+  margin-bottom: 60px;
+  padding-top: 28px;   /* au lieu de 48px */
+  padding-bottom: 28px;
+}
