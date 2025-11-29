@@ -164,6 +164,14 @@ body {
   opacity: 0;
   transition: opacity 0.2s steps(2);
   text-align: center;
+  color: hotpink; /* même rose que dans le cadre */
+}
+
+.intro-text.visible {
+  opacity: 1;
+}
+
+
 }
 
 .intro-text.visible {
@@ -208,4 +216,59 @@ intro-enter.visible {
   0%   { opacity: 1; }
   50%  { opacity: 0.6; }
   100% { opacity: 1; }
+}
+#intro-enter {
+  opacity: 0;
+  margin-top: 40px;
+  font-size: 48px;
+  color: hotpink;
+  text-decoration: none;
+  transition: opacity 0.2s steps(2), transform 0.2s steps(2);
+}
+
+#intro-enter.visible {
+  opacity: 1;
+}
+
+#intro-enter:hover {
+  animation: hover-glitch 0.25s steps(2);
+}
+
+@keyframes hover-glitch {
+  0%   { transform: translateX(0); }
+  20%  { transform: translateX(-2px); }
+  40%  { transform: translateX(2px); }
+  60%  { transform: translateX(-1px); }
+  80%  { transform: translateX(1px); }
+  100% { transform: translateX(0); }
+}
+.frame-glitch {
+  animation: frame-shake 0.12s steps(2);
+}
+
+@keyframes frame-shake {
+  0%   { transform: translate(0, 0); }
+  25%  { transform: translate(-3px, 2px); }
+  50%  { transform: translate(3px, -2px); }
+  75%  { transform: translate(-2px, -1px); }
+  100% { transform: translate(0, 0); }
+}
+#glitch-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 9999;
+  transition: opacity 0.15s steps(2);
+}
+
+#glitch-screen.active {
+  opacity: 1;
 }
