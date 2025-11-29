@@ -1,7 +1,3 @@
-
-
-
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -11,15 +7,20 @@
 </head>
 <body>
 
-  <div class="page">
-    <p class="post-binaire-texte texte">
-    "j’ai commencé à écrire pour essayer de trouver le chemin des temples cachés sur mes îles intérieures et dont j’ignore encore, un jour sur deux, la voie d’accès. le soleil peut aider, la lune aussi mais le monde tangible 
+  <div class="intro-wrapper">
+    <p id="intro-text-1" class="post-binaire-texte texte intro-text visible">
+       "j’ai commencé à écrire pour essayer de trouver le chemin des temples cachés sur mes îles intérieures et dont j’ignore encore, un jour sur deux, la voie d’accès. le soleil peut aider, la lune aussi mais le monde tangible 
     — celui que beaucoup appelle "le vrai" — est une vraie plaie : il bourdonne trop fort et ne fait pas beaucoup de miel."<br>
-    <br>
     </p>
-  </div>
 
+    <p id="intro-text-2" class="post-binaire-texte texte intro-text">
+       "j’ai commencé à écrire pour essayer de trouver le chemin des temples cachés sur mes îles intérieures et dont j’ignore encore, un jour sur deux, la voie d’accès. le soleil peut aider, la lune aussi mais le monde tangible 
+    — celui que beaucoup appelle "le vrai" — est une vraie plaie : il bourdonne trop fort et ne fait pas beaucoup de miel."<br>
     </p>
+
+    <a href="home.html" id="intro-enter">
+      &gt;
+    </a>
   </div>
 
   <!-- ÉCRAN GLITCH -->
@@ -28,21 +29,30 @@
   </div>
 
   <script>
-    // Temps avant le glitch (page figée)
-    const tempsAvantGlitch = 2500; // 2,5 secondes
+    const text1 = document.getElementById("intro-text-1");
+    const text2 = document.getElementById("intro-text-2");
+    const enterBtn = document.getElementById("intro-enter");
+    const glitch = document.getElementById("glitch-screen");
 
-    // Durée du glitch avant redirection
-    const dureeGlitch = 800;
+    // timings saccadés
+    setTimeout(() => {
+      glitch.classList.add("active");
+    }, 400);
 
     setTimeout(() => {
-      const glitch = document.getElementById("glitch-screen");
+      glitch.classList.remove("active");
+      text1.classList.remove("visible");
+      text2.classList.add("visible");
+    }, 900);
+
+    setTimeout(() => {
       glitch.classList.add("active");
+    }, 1200);
 
-      setTimeout(() => {
-        window.location.href = "home.html";
-      }, dureeGlitch);
-
-    }, tempsAvantGlitch);
+    setTimeout(() => {
+      glitch.classList.remove("active");
+      enterBtn.classList.add("visible");
+    }, 1800);
   </script>
 
 </body>
