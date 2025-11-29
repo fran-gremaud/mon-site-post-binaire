@@ -7,65 +7,21 @@
 </head>
 <body>
 
-  <!-- INTRO DANS LE CADRE -->
-  <div class="page intro-wrapper">
-    <p id="intro-text-1" class="post-binaire-texte texte intro-text visible">
-      
+  <div class="page">
+    <p class="post-binaire-texte texte">
       "j’ai commencé à écrire pour essayer de trouver le chemin des temples cachés sur mes îles intérieures et dont j’ignore encore, 
       un jour sur deux, la voie d’accès. le soleil peut aider, la lune aussi mais le monde tangible 
       — celui que beaucoup appelle "le vrai" — est une vraie plaie : il bourdonne trop fort et ne fait pas beaucoup de miel."
-        
+      <br><br>
+      <a href="home.html" class="glitch-link intro-arrow">&gt;</a>
     </p>
-  
-    
-
-    <p id="intro-text-2" class="post-binaire-texte texte intro-text">
-       
-      "j’ai commencé à écrire pour essayer de trouver le chemin des temples cachés sur mes îles intérieures et dont j’ignore encore, 
-      un jour sur deux, la voie d’accès. le soleil peut aider, la lune aussi mais le monde tangible 
-      — celui que beaucoup appelle "le vrai" — est une vraie plaie : il bourdonne trop fort et ne fait pas beaucoup de miel."
-      
-    </p>
-
-    <a href="home.html" id="intro-enter">
-      &gt;
-    </a>
-
   </div>
 
-  <!-- ÉCRAN GLITCH IMAGE -->
+  <!-- ÉCRAN DE TRANSITION GLITCH -->
   <div id="glitch-screen">
     <img src="glitch.png" alt="">
   </div>
 
-  <script>
-  const enterBtn = document.getElementById("intro-enter");
-  const glitch = document.getElementById("glitch-screen");
-  const frame = document.querySelector(".intro-wrapper");
-
-  function playGlitch() {
-    glitch.classList.add("active");
-    frame.classList.add("frame-glitch");
-
-    setTimeout(() => {
-      glitch.classList.remove("active");
-      frame.classList.remove("frame-glitch");
-    }, 180);
-  }
-
-  // 3 glitches aléatoires dans les 5 premières secondes
-  const glitchTimes = Array.from({ length: 3 }, () => Math.random() * 5000);
-
-  glitchTimes.forEach(time => {
-    setTimeout(playGlitch, time);
-  });
-
-  // Apparition douce de la flèche après 5 secondes
-  setTimeout(() => {
-    enterBtn.classList.add("visible");
-  }, 5000);
-</script>
-
-
+  <script src="glitch.js"></script>
 </body>
 </html>
