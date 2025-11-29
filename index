@@ -1,15 +1,13 @@
+
+
+
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="utf-8">
   <title>franxx</title>
   <link rel="stylesheet" href="style.css">
-
-  <script>
-    setTimeout(function () {
-      window.location.href = "home.html";
-    }, 3500); // 3,5 secondes
-  </script>
 </head>
 <body>
 
@@ -21,5 +19,32 @@
     </p>
   </div>
 
+    </p>
+  </div>
+
+  <!-- ÉCRAN GLITCH -->
+  <div id="glitch-screen">
+    <img src="glitch.png" alt="">
+  </div>
+
+  <script>
+    // Temps avant le glitch (page figée)
+    const tempsAvantGlitch = 2500; // 2,5 secondes
+
+    // Durée du glitch avant redirection
+    const dureeGlitch = 800;
+
+    setTimeout(() => {
+      const glitch = document.getElementById("glitch-screen");
+      glitch.classList.add("active");
+
+      setTimeout(() => {
+        window.location.href = "home.html";
+      }, dureeGlitch);
+
+    }, tempsAvantGlitch);
+  </script>
+
 </body>
 </html>
+
