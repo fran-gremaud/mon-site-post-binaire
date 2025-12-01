@@ -239,7 +239,23 @@ body {
   text-decoration: none;
   border-bottom: 1px solid currentColor;
 }
+.apropos-postit-texte {
+  float: right;
 
+  margin: -20px -120px 24px 32px;  /* haut | droite | bas | gauche */
+  width: 340px;
+  padding: 20px;
+
+  font-family: "AdelpheFlorealBold", serif;
+  font-size: 15px;
+  line-height: 1.45;
+
+  color: #00a8ff;                 /* ✅ le bleu revient ici */
+  background: #ffffff;
+
+  border: 4px solid #00a8ff;
+  box-shadow: 16px 16px 0 #00a8ff;
+}
 /* =========================================================
    POST-IT BLEU (EN BAS, SANS CHEVAUCHEMENT)
 ========================================================= */
