@@ -41,7 +41,7 @@ body {
   background-color: #ffffff;
   border: 6px solid #000000;
   box-shadow: 12px 12px 0 #000;
- overflow: visible;
+  overflow: visible;
 }
 
 .titre {
@@ -192,7 +192,20 @@ body {
 }
 
 /* =========================================================
-   PAGE À PROPOS — VERSION STABLE
+   LIENS (CLIGNOTEMENT)
+========================================================= */
+
+a {
+  animation: arrow-pulse 3s steps(5) infinite;
+}
+
+a:hover {
+  animation: none;
+  color: hotpink;
+}
+
+/* =========================================================
+   PAGE À PROPOS — VERSION DÉFINITIVE
 ========================================================= */
 
 .apropos-subtitle {
@@ -208,27 +221,51 @@ body {
   overflow: visible;
 }
 
-..apropos-photo {
+/* --- PHOTO GAUCHE DÉBORDANTE --- */
+.apropos-photo {
   float: left;
   width: 200px;
-
-  margin: -20px 32px 24px -60px;  /* haut | droite | bas | gauche */
-  /* ↑ négatif en haut = le texte commence plus haut */
-
+  margin: -20px 32px 24px -60px;
   border: 4px solid #EFFF0F;
   background: #ffffff;
   box-shadow: 16px 16px 0 #EFFF0F;
 }
 
+/* --- TEXTE PRINCIPAL --- */
 .apropos-texte {
   font-size: 16px;
   line-height: 1.5;
   color: #ff2fa3;
 }
 
+/* --- POST-IT BLEU À DROITE --- */
+.apropos-postit-texte {
+  float: right;
+  margin: -20px -120px 24px 32px;
+  width: 340px;
+  padding: 20px;
+  font-family: "AdelpheFlorealBold", serif;
+  font-size: 15px;
+  line-height: 1.45;
+  color: #00a8ff;
+  background: #ffffff;
+  border: 4px solid #00a8ff;
+  box-shadow: 16px 16px 0 #00a8ff;
+}
+
+.apropos-postit-source {
+  display: block;
+  margin-top: 10px;
+  font-size: 11px;
+  font-style: italic;
+  opacity: 0.85;
+  text-align: left;
+}
+
+/* --- LÉGENDE APRÈS LES FLOTTANTS --- */
 .apropos-legende {
   clear: both;
-  margin-top: 8px;
+  margin-top: 12px;
   font-size: 12px;
   font-style: italic;
   opacity: 0.8;
@@ -239,48 +276,6 @@ body {
   text-decoration: none;
   border-bottom: 1px solid currentColor;
 }
-.apropos-postit-texte {
-  float: right;
-
-  margin: -20px -120px 24px 32px;  /* haut | droite | bas | gauche */
-  width: 340px;
-  padding: 20px;
-
-  font-family: "AdelpheFlorealBold", serif;
-  font-size: 15px;
-  line-height: 1.45;
-
-  color: #00a8ff;                 /* ✅ le bleu revient ici */
-  background: #ffffff;
-
-  border: 4px solid #00a8ff;
-  box-shadow: 16px 16px 0 #00a8ff;
-}
-/* =========================================================
-   POST-IT BLEU (EN BAS, SANS CHEVAUCHEMENT)
-========================================================= */
-
-.apropos-photo {
-  float: left;
-  width: 200px;
-
-  margin: -20px 32px 24px -60px;  /* haut | droite | bas | gauche */
-  /* ↑ négatif en haut = le texte commence plus haut */
-
-  border: 4px solid #EFFF0F;
-  background: #ffffff;
-  box-shadow: 16px 16px 0 #EFFF0F;
-}
-
-.apropos-postit-source {
-  display: block;
-  margin-top: 10px;
-  font-size: 11px;
-  font-style: italic;
-  opacity: 0.85;
-   text-align: left;
-
-}
 
 /* =========================================================
    MOBILE
@@ -288,27 +283,11 @@ body {
 
 @media (max-width: 700px) {
 
-  .apropos-photo {
+  .apropos-photo,
+  .apropos-postit-texte {
     float: none;
     width: 100%;
     margin: 0 0 20px 0;
-    box-shadow: 8px 8px 0 #ff2fa3;
+    box-shadow: 8px 8px 0 currentColor;
   }
-
-  .apropos-postit-texte {
-    box-shadow: 8px 8px 0 #00a8ff;
-  }
-}
-
-/* =========================================================
-   CLIGNOTEMENT LIENS
-========================================================= */
-
-a {
-  animation: arrow-pulse 3s steps(5) infinite;
-}
-
-a:hover {
-  animation: none;
-  color: hotpink;
 }
