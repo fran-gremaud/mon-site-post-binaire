@@ -41,6 +41,7 @@ body {
   background-color: #ffffff;
   border: 6px solid #000000;
   box-shadow: 12px 12px 0 #000;
+ overflow: visible;
 }
 
 .titre {
@@ -208,14 +209,15 @@ body {
 }
 
 .apropos-photo {
-  float: left;
+  display: block;
   width: 200px;
-  margin: 0 32px 24px 0;
+  margin: 0 0 24px -100px;   /* ✅ déborde à gauche */
 
   border: 4px solid #ff2fa3;
   background: #ffffff;
   box-shadow: 16px 16px 0 #ff2fa3;
 }
+
 
 .apropos-texte {
   font-size: 16px;
@@ -242,8 +244,7 @@ body {
 ========================================================= */
 
 .apropos-postit-texte {
-  clear: both;
-  margin: 60px auto 20px auto;
+  margin: 60px auto -120px auto;  /* ✅ déborde vers le bas */
   width: 340px;
   max-width: 100%;
   padding: 20px;
@@ -258,6 +259,7 @@ body {
   border: 4px solid #00a8ff;
   box-shadow: 16px 16px 0 #00a8ff;
 }
+
 
 .apropos-postit-source {
   display: block;
