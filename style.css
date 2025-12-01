@@ -194,11 +194,11 @@ body {
 }
 
 /* =========================================================
-   PAGE À PROPOS — TITRE, SOUS-TITRE, PHOTO, TEXTE
+   PAGE À PROPOS — VERSION NETTOYÉE
 ========================================================= */
 
 .apropos-subtitle {
-  margin-top: 2px;     /* ← mini espace maîtrisé */
+  margin-top: 2px;
   margin-bottom: 28px;
   font-size: 16px;
   font-style: italic;
@@ -207,13 +207,15 @@ body {
   opacity: 0.85;
 }
 
+.apropos-content {
+  position: relative;
 }
 
 .apropos-photo {
   float: left;
-  width: 200px !important;
-  max-width: 200px !important;
-  height: auto !important;
+  width: 200px;
+  max-width: 200px;
+  height: auto;
 
   margin: -12px 32px 16px -12px;
   border: 4px solid #000;
@@ -222,8 +224,6 @@ body {
 
   display: block;
 }
-
-
 
 .apropos-texte {
   font-size: 16px;
@@ -249,17 +249,20 @@ body {
   opacity: 0.7;
 }
 
+/* ===============================
+   RESPONSIVE
+================================ */
+
 @media (max-width: 700px) {
   .apropos-photo {
     float: none;
-    width: 100% !important;
-    max-width: 100% !important;
+    width: 100%;
+    max-width: 100%;
     margin: 0 0 16px 0;
     box-shadow: 8px 8px 0 #000;
   }
 }
 
-}
 
 /* =========================================================
    CLIGNOTEMENT DOUX DE TOUS LES LIENS
