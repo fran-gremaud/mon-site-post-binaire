@@ -200,28 +200,41 @@ body {
 }
 
 /* =========================================================
-   PAGE À PROPOS — IMAGE + TEXTE
+   PAGE À PROPOS — TEXTE & PHOTO HABILLÉE
 ========================================================= */
 
-.apropos-grid {
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  gap: 32px;
-  align-items: start;
+/* Sous-titre sous fran· */
+.apropos-subtitle {
+  margin-top: -24px;
+  margin-bottom: 32px;
+  font-size: 16px;
+  font-style: italic;
+  color: #ff2fa3;
+  opacity: 0.85;
 }
 
-.apropos-image img {
-  width: 100%;
-  height: auto;
-  display: block;
+/* Photo flottante à gauche */
+.apropos-photo {
+  float: left;
+  width: 240px;
+  margin: 0 24px 16px 0;
   border: 2px solid #000;
 }
 
+/* Texte principal plus petit, toujours rose */
+.apropos-texte {
+  font-size: 18px;
+  line-height: 1.75;
+  color: #ff2fa3;
+}
+
+/* Légende sous la photo */
 .apropos-legende {
+  clear: both;
   margin-top: 8px;
   font-size: 12px;
   font-style: italic;
-  text-align: left;
+  opacity: 0.8;
 }
 
 .apropos-legende a {
@@ -234,16 +247,15 @@ body {
   opacity: 0.7;
 }
 
-.italique {
-  font-style: italic;
-}
-
-/* Version mobile */
+/* Version mobile : on enlève l’habillage */
 @media (max-width: 700px) {
-  .apropos-grid {
-    grid-template-columns: 1fr;
+  .apropos-photo {
+    float: none;
+    width: 100%;
+    margin: 0 0 16px 0;
   }
 }
+
 
 /* =========================================================
    CLIGNOTEMENT DOUX DE TOUS LES LIENS
