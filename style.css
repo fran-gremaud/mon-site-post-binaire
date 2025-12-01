@@ -135,30 +135,57 @@ body {
    HEADER & FOOTER (POUR PLUS TARD)
 ========================================================= */
 
-.site-header,
+/* =========================================================
+   FOOTER — VERSION 2 LIGNES
+========================================================= */
+
 .site-footer {
   color: #ffffff;
-}
-
-.site-footer {
   padding: 48px 40px 28px 40px;
   font-size: 13px;
-  opacity: 0.85;
+  opacity: 0.9;
 }
 
-.footer-inner {
+.footer-inner.two-lines {
   max-width: 900px;
   margin: 0 auto;
+  text-align: center;
+}
+
+/* Ligne du haut : 3 éléments */
+.footer-top {
   display: grid;
   grid-template-columns: 1fr auto 1fr;
   align-items: center;
+  margin-bottom: 12px;
 }
 
-.footer-left { justify-self: start; }
-.footer-center { justify-self: center; margin: 0; }
-.footer-right { justify-self: end; letter-spacing: 0.1em; }
+.footer-left {
+  justify-self: start;
+}
 
-.site-footer a {
+.footer-center {
+  justify-self: center;
+}
+
+.footer-right {
+  justify-self: end;
+}
+
+/* Italique pour call me maybe */
+.footer-mail {
+  font-style: italic;
+}
+
+/* Ligne du bas */
+.footer-bottom {
+  margin: 0;
+  opacity: 0.8;
+}
+
+/* Liens propres (pas de violet après clic) */
+.site-footer a,
+.site-footer a:visited {
   color: inherit;
   text-decoration: none;
   border-bottom: 1px solid currentColor;
@@ -167,53 +194,3 @@ body {
 .site-footer a:hover {
   opacity: 0.7;
 }
-
-/* Aligner le ">" à droite de la dernière ligne */
-.arrow-line {
-  display: block;
-  text-align: right;
-}
-
-/* Supprimer le violet et le soulignement des liens visités */
-.intro-arrow:link,
-.intro-arrow:visited {
-  color: hotpink;
-  text-decoration: none;
-}
-a:visited {
-  color: inherit;
-}
-
-.page .texte:first-child {
-  margin-top: 40px;
-}
-/* ===== FOOTER SUR DEUX LIGNES ===== */
-
-.footer-inner.two-lines {
-  display: block;
-  text-align: center;
-}
-
-.footer-top {
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
-  align-items: center;
-  max-width: 900px;
-  margin: 0 auto 12px auto;
-}
-
-.footer-bottom {
-  margin: 0;
-  font-size: 13px;
-  opacity: 0.8;
-}
-
-.italic {
-  font-style: italic;
-}
-
-/* Sécurité : garder les liens visités identiques */
-.site-footer a:visited {
-  color: inherit;
-}
-
