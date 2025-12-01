@@ -8,11 +8,15 @@
        url("ma-police.woff") format("woff");
 }
 
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
 body {
   font-family: PostBinaire, sans-serif;
   font-size: 20px;
   line-height: 1.6;
-  margin: 0;
   background-color: #ff2fa3;
   color: #000;
 }
@@ -28,7 +32,7 @@ body {
 
 .page {
   max-width: 680px;
-  margin: 120px auto 20px auto; /* ← 120px en haut, 20px en bas */
+  margin: 120px auto 20px auto;  /* top / right / bottom / left */
   padding: 48px;
   background-color: #ffffff;
   border: 6px solid #000000;
@@ -36,12 +40,11 @@ body {
   position: relative;
   top: -10px;
   left: -10px;
-
 }
 
 .titre {
   font-size: 48px;
-  margin-bottom: 0px; /* ↓ réduit pour coller au sous-titre */
+  margin: 0 0 0 0;
   color: #ff2fa3;
 }
 
@@ -65,7 +68,7 @@ body {
 }
 
 /* =========================================================
-   SYMBOLE ">" D’ENTRÉE (INDEX)
+   SYMBOLE ">" D’ENTRÉE
 ========================================================= */
 
 .intro-arrow {
@@ -130,12 +133,12 @@ body {
 }
 
 /* =========================================================
-   FOOTER — VERSION 2 LIGNES (ESPACEMENT CORRIGÉ)
+   FOOTER — VERSION 2 LIGNES STABLE
 ========================================================= */
 
 .site-footer {
   color: #ffffff;
-  padding: 48px 40px 0px 40px;
+  padding: 48px 40px 16px 40px;
   font-size: 13px;
   opacity: 0.9;
 }
@@ -144,34 +147,39 @@ body {
   max-width: 900px;
   margin: 0 auto;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;   /* ✅ ESPACE ENTRE LIGNE 1 ET 2 */
 }
 
+/* Ligne 1 */
 .footer-top {
   display: grid;
   grid-template-columns: repeat(4, auto);
   justify-content: space-between;
   align-items: center;
   max-width: 900px;
-  margin: 0 auto; /* pas de marge en bas ici */
+  margin: 0 auto;
 }
 
-.footer-left { justify-self: center; }
-.footer-center { justify-self: center; }
-.footer-right { justify-self: center; }
+.footer-left,
+.footer-center,
+.footer-right {
+  justify-self: center;
+}
 
 .footer-mail {
   font-style: italic;
 }
 
-/* ✅ espace UNIQUEMENT entre ligne 1 et ligne 2 */
+/* Ligne 2 */
 .footer-bottom {
-  margin-top: 0px;
-  margin-bottom: 0;
+  margin: 0;
   opacity: 0.8;
   text-align: center;
 }
 
-/* Liens footer propres */
+/* Liens footer */
 .site-footer a,
 .site-footer a:visited {
   color: inherit;
@@ -184,10 +192,9 @@ body {
 }
 
 /* =========================================================
-   PAGE À PROPOS — TEXTE & PHOTO HABILLÉE
+   PAGE À PROPOS — TITRE, SOUS-TITRE, PHOTO, TEXTE
 ========================================================= */
 
-/* ✅ sous-titre collé au titre, saut APRÈS */
 .apropos-subtitle {
   margin-top: 0;
   margin-bottom: 32px;
@@ -198,7 +205,6 @@ body {
   opacity: 0.85;
 }
 
-/* Photo flottante */
 .apropos-photo {
   float: left;
   width: 240px;
@@ -206,14 +212,12 @@ body {
   border: 2px solid #000;
 }
 
-/* Texte lecture rose plus petit */
 .apropos-texte {
   font-size: 18px;
   line-height: 1.75;
   color: #ff2fa3;
 }
 
-/* Légende photo */
 .apropos-legende {
   clear: both;
   margin-top: 8px;
@@ -253,39 +257,3 @@ a:hover {
   animation: none;
   color: hotpink;
 }
-
-/* =========================================================
-   RESET TOTAL DES MARGES BASSE DE PAGE
-========================================================= */
-
-.site-footer,
-.site-footer * {
-  margin-bottom: 0 !important;
-  padding-bottom: 0 !important;
-}
-
-body {
-  padding-bottom: 0 !important;
-}
-
-html {
-  padding-bottom: 0 !important;
-}
-
-/* =========================================================
-   ESPACE CONTRÔLÉ ENTRE LIGNE 1 ET LIGNE 2 DU FOOTER
-========================================================= */
-
-.site-footer .footer-bottom {
-  margin-top: 24
-   px !important;  /* espace entre les deux lignes */
-}
-
-/* =========================================================
-   PETITE MARGE SOUS LE FOOTER
-========================================================= */
-
-.site-footer {
-  padding-bottom: 16px !important;  /* espace sous la 2e ligne */
-}
-
