@@ -30,6 +30,11 @@ body {
   font-feature-settings: "liga" 1, "dlig" 1, "salt" 1;
 }
 
+.normal {
+  font-style: normal;
+}
+
+
 /* =========================================================
    STRUCTURE GÉNÉRALE
 ========================================================= */
