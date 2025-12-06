@@ -276,6 +276,27 @@ a:hover {
 }
 .postit-source { 
   text-align: right;
+
+   @font-face {
+  font-family: "AdelpheFructidorBold";
+  src: url("Adelphe-Trouble-FructidorBold.woff2") format("woff2");
+}
+
+.postit-content {
+  background: #ffffff;
+  border: 4px solid #00a8ff;
+  box-shadow: 10px 10px 0 #00a8ff;
+  padding: 18px;
+
+  font-family: "AdelpheFructidorBold", serif;
+  font-size: 15px;
+  line-height: 1.45;
+
+  color: #00a8ff;        /* même couleur que le post-it bleu */
+  text-align: left;     /* aligné à gauche */
+
+  font-feature-settings: "liga" 1, "dlig" 1;  /* ligatures activées */
+}
 /* =========================================================
    MOBILE
 ========================================================= */
