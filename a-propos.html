@@ -151,6 +151,7 @@
 
   </div>
 
+  <!-- FOOTER -->
   <div id="footer-placeholder"></div>
 
   <script>
@@ -201,18 +202,19 @@
     }
   }
 
+  /* ✅ PLACEMENT ALÉATOIRE AVEC PARTIE TOUJOURS DANS LE CADRE */
   function randomizeWithOverlap(el, page) {
     const pageRect = page.getBoundingClientRect();
     const w = el.offsetWidth;
     const h = el.offsetHeight;
 
-    const overlap = 60; // portion minimale à l’intérieur
+    const minVisible = 60;
 
-    const minX = pageRect.left + pageRect.width - overlap;
-    const maxX = pageRect.left + pageRect.width + 140;
+    const minX = pageRect.left - (w - minVisible);
+    const maxX = pageRect.right - minVisible;
 
-    const minY = pageRect.top + 60;
-    const maxY = pageRect.top + pageRect.height - 120;
+    const minY = pageRect.top - (h - minVisible);
+    const maxY = pageRect.bottom - minVisible;
 
     const x = minX + Math.random() * (maxX - minX);
     const y = minY + Math.random() * (maxY - minY);
