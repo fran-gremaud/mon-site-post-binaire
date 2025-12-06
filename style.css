@@ -327,7 +327,14 @@ a:hover {
 #postit-pop.closed {
   display: none;
 }
+#postit-pop {
+  cursor: grab;
+}
 
+#postit-pop.dragging {
+  cursor: grabbing;
+  user-select: none;
+}
 /* =========================================================
    MOBILE
 ========================================================= */
