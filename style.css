@@ -363,3 +363,25 @@ a:hover {
   text-align: right;
 }
 
+.full-love {
+  display: block;
+  margin-top: 18px;
+  line-height: 2.4em;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+/* chaque lettre */
+.full-love span {
+  display: inline-block;
+  animation: christmas-flicker 1.6s infinite;
+  animation-delay: var(--delay);
+}
+
+/* animation guirlande */
+@keyframes christmas-flicker {
+  0%   { opacity: 1; }
+  40%  { opacity: 0.25; }
+  60%  { opacity: 0.9; }
+  100% { opacity: 1; }
+}
