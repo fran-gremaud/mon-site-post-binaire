@@ -264,13 +264,14 @@ a:hover {
 ========================================================= */
 
 #postit-pop {
-  position: absolute;          /* ✅ plus fixe */
-  right: -80px;                /* ✅ déborde sur la page mais pas l’écran */
-  top: 160px;                  /* ✅ position stable */
-  width: 320px;
-  z-index: 10;
+  position: absolute;
+  left: calc(100% - 80px); /* ✅ remplace le old "right:-80px" */
+  top: 160px;
+  width: 330px;
+  z-index: 20;
   font-family: "AdelpheFlorealBold", serif;
 }
+
 
 /* Bandeau */
 .postit-bar {
