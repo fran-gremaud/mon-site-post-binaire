@@ -13,6 +13,10 @@
   src: url("Adelphe-Trouble-FlorealBold.otf") format("opentype");
 }
 
+.font-fructidor {
+  font-family: "AdelpheFructidorBold", serif;
+}
+
 @font-face {
   font-family: "AdelpheFructidorBold";
   src: url("Adelphe-Trouble-FructidorBold.woff2") format("woff2");
