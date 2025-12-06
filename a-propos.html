@@ -6,58 +6,27 @@
   <link rel="stylesheet" href="style.css">
 
   <style>
-    #postit-pop:hover {
-      animation: postit-shake 0.25s steps(2) infinite;
-    }
-
+    #postit-pop:hover { animation: postit-shake 0.25s steps(2) infinite; }
     @keyframes postit-shake {
-      0%   { transform: translate(0, 0); }
-      25%  { transform: translate(-2px, 1px); }
-      50%  { transform: translate(2px, -1px); }
-      75%  { transform: translate(-1px, -2px); }
-      100% { transform: translate(0, 0); }
+      0% { transform: translate(0,0); }
+      25% { transform: translate(-2px,1px); }
+      50% { transform: translate(2px,-1px); }
+      75% { transform: translate(-1px,-2px); }
+      100% { transform: translate(0,0); }
     }
-
     .postit-bar {
-      background: #00a8ff;
-      height: 28px;
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
-      border: 4px solid #00a8ff;
-      border-bottom: none;
-      box-shadow: 10px 10px 0 #00a8ff;
+      background:#00a8ff;height:28px;display:flex;align-items:center;justify-content:flex-end;
+      border:4px solid #00a8ff;border-bottom:none;box-shadow:10px 10px 0 #00a8ff;
     }
-
     #close-postit {
-      background: #ffffff;
-      border: 2px solid #00a8ff;
-      color: #00a8ff;
-      width: 22px;
-      height: 22px;
-      line-height: 18px;
-      margin-right: 4px;
-      font-size: 16px;
-      cursor: pointer;
+      background:#fff;border:2px solid #00a8ff;color:#00a8ff;
+      width:22px;height:22px;line-height:18px;margin-right:4px;font-size:16px;cursor:pointer;
     }
-
     .postit-content {
-      background: #ffffff;
-      border: 4px solid #00a8ff;
-      box-shadow: 10px 10px 0 #00a8ff;
-      padding: 18px;
-      font-size: 15px;
-      line-height: 1.45;
-      color: #00a8ff;
+      background:#fff;border:4px solid #00a8ff;box-shadow:10px 10px 0 #00a8ff;
+      padding:18px;font-size:15px;line-height:1.45;color:#00a8ff;
     }
-
-    .postit-source {
-      display: block;
-      margin-top: 12px;
-      font-size: 11px;
-      font-style: italic;
-      opacity: 0.85;
-    }
+    .postit-source { display:block;margin-top:12px;font-size:11px;font-style:italic;opacity:.85; }
   </style>
 </head>
 
@@ -107,58 +76,58 @@
 
   </div>
 
+  <!-- FOOTER RESTAURÉ -->
+  <div id="footer-placeholder"></div>
+
+  <script>
+    fetch("footer.html")
+      .then(r => r.text())
+      .then(html => {
+        document.getElementById("footer-placeholder").innerHTML = html;
+      });
+  </script>
+
   <script>
 (function () {
   const postit = document.getElementById("postit-pop");
   if (!postit) return;
 
-  let dragging = false;
-  let startX = 0, startY = 0;
-  let startLeft = 0, startTop = 0;
+  let dragging=false,startX=0,startY=0,startLeft=0,startTop=0;
 
-  postit.addEventListener("mousedown", startDrag);
-  postit.addEventListener("touchstart", startDrag, { passive: false });
+  postit.addEventListener("mousedown",startDrag);
+  postit.addEventListener("touchstart",startDrag,{passive:false});
 
-  function startDrag(e) {
-    const evt = e.touches ? e.touches[0] : e;
-    dragging = true;
+  function startDrag(e){
+    const evt=e.touches?e.touches[0]:e;
+    dragging=true;
     postit.classList.add("dragging");
-
-    startX = evt.clientX;
-    startY = evt.clientY;
-    startLeft = postit.offsetLeft;
-    startTop = postit.offsetTop;
-
-    document.addEventListener("mousemove", drag);
-    document.addEventListener("mouseup", stopDrag);
-    document.addEventListener("touchmove", drag, { passive: false });
-    document.addEventListener("touchend", stopDrag);
+    startX=evt.clientX;
+    startY=evt.clientY;
+    startLeft=postit.offsetLeft;
+    startTop=postit.offsetTop;
+    document.addEventListener("mousemove",drag);
+    document.addEventListener("mouseup",stopDrag);
+    document.addEventListener("touchmove",drag,{passive:false});
+    document.addEventListener("touchend",stopDrag);
   }
 
-  function drag(e) {
-    if (!dragging) return;
-    const evt = e.touches ? e.touches[0] : e;
-
-    const dx = evt.clientX - startX;
-    const dy = evt.clientY - startY;
-
-    postit.style.left = startLeft + dx + "px";
-    postit.style.top  = startTop  + dy + "px";
+  function drag(e){
+    if(!dragging)return;
+    const evt=e.touches?e.touches[0]:e;
+    postit.style.left=startLeft+(evt.clientX-startX)+"px";
+    postit.style.top =startTop +(evt.clientY-startY )+"px";
   }
 
-  function stopDrag() {
-    dragging = false;
+  function stopDrag(){
+    dragging=false;
     postit.classList.remove("dragging");
-
-    document.removeEventListener("mousemove", drag);
-    document.removeEventListener("mouseup", stopDrag);
-    document.removeEventListener("touchmove", drag);
-    document.removeEventListener("touchend", stopDrag);
+    document.removeEventListener("mousemove",drag);
+    document.removeEventListener("mouseup",stopDrag);
+    document.removeEventListener("touchmove",drag);
+    document.removeEventListener("touchend",stopDrag);
   }
 
-  document.getElementById("close-postit").onclick = () => {
-    postit.style.display = "none";
-  };
+  document.getElementById("close-postit").onclick=()=>{postit.style.display="none";}
 })();
 </script>
 
