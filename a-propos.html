@@ -112,7 +112,9 @@
   const postit = document.getElementById("postit-pop");
   if (!postit) return;
 
-  let dragging = false, offsetX = 0, offsetY = 0;
+  let dragging = false;
+  let startX = 0, startY = 0;
+  let startLeft = 0, startTop = 0;
 
   postit.addEventListener("mousedown", startDrag);
   postit.addEventListener("touchstart", startDrag, { passive: false });
@@ -122,9 +124,10 @@
     dragging = true;
     postit.classList.add("dragging");
 
-    const rect = postit.getBoundingClientRect();
-    offsetX = evt.clientX - rect.left;
-    offsetY = evt.clientY - rect.top;
+    startX = evt.clientX;
+    startY = evt.clientY;
+    startLeft = postit.offsetLeft;
+    startTop = postit.offsetTop;
 
     document.addEventListener("mousemove", drag);
     document.addEventListener("mouseup", stopDrag);
@@ -136,8 +139,11 @@
     if (!dragging) return;
     const evt = e.touches ? e.touches[0] : e;
 
-    postit.style.left = evt.clientX - offsetX + "px";
-    postit.style.top  = evt.clientY - offsetY + "px";
+    const dx = evt.clientX - startX;
+    const dy = evt.clientY - startY;
+
+    postit.style.left = startLeft + dx + "px";
+    postit.style.top  = startTop  + dy + "px";
   }
 
   function stopDrag() {
