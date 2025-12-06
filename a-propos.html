@@ -4,6 +4,77 @@
   <meta charset="utf-8">
   <title>fran· — à propos</title>
   <link rel="stylesheet" href="style.css">
+
+  <!-- AJOUT DU STYLE DU POST-IT POPUP -->
+  <style>
+    /* === POST-IT FLOTTANT EN SURIMPRESSION === */
+
+    #postit-pop {
+      position: fixed;
+      right: -48px;        /* déborde hors du cadre blanc */
+      bottom: 22vh;       /* ≈ deux tiers bas de l’écran */
+      width: 330px;
+      z-index: 1200;
+      font-family: "AdelpheFlorealBold", serif;
+      transition: transform 0.15s steps(2);
+    }
+
+    /* tremblement quand on approche pour fermer */
+    #postit-pop:hover {
+      animation: postit-shake 0.25s steps(2) infinite;
+    }
+
+    @keyframes postit-shake {
+      0%   { transform: translate(0, 0); }
+      25%  { transform: translate(-2px, 1px); }
+      50%  { transform: translate(2px, -1px); }
+      75%  { transform: translate(-1px, -2px); }
+      100% { transform: translate(0, 0); }
+    }
+
+    /* bandeau du haut */
+    .postit-bar {
+      background: #00a8ff;
+      height: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      border: 4px solid #00a8ff;
+      border-bottom: none;
+      box-shadow: 12px 12px 0 #00a8ff;
+    }
+
+    #close-postit {
+      background: #ffffff;
+      border: 2px solid #00a8ff;
+      color: #00a8ff;
+      width: 22px;
+      height: 22px;
+      line-height: 18px;
+      margin-right: 4px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    /* corps du post-it */
+    .postit-content {
+      background: #ffffff;
+      border: 4px solid #00a8ff;
+      box-shadow: 12px 12px 0 #00a8ff;
+      padding: 18px;
+      font-size: 15px;
+      line-height: 1.45;
+      color: #00a8ff;
+    }
+
+    .postit-source {
+      display: block;
+      margin-top: 12px;
+      font-size: 11px;
+      font-style: italic;
+      opacity: 0.85;
+    }
+  </style>
 </head>
 
 <body>
@@ -24,20 +95,7 @@
         alt="portrait de fran·" 
         class="apropos-photo">
 
-        <!-- POST-IT TEXTE -->
-  <div class="apropos-postit-wrap">
-  <div class="apropos-postit-texte">
-    Je suis une fouille du·de la reine sans monarque
-    <br><br>
-    Je suis une conteuse d’une révolution dont on ne connaît pas l’issue mais qui aura besoin de joie et de force pour ne pas mourir sous les nécropolitiques.<br><br>
-    <span class="apropos-postit-source">
-    in <span class="normal">Je ne suis personne mais un chœur de bacchantes intergalatiques</span>, contragence spatiale, 2024
-  </span>
-</div>
-  </div>
-</div>
-
-      <!-- TEXTE -->
+      <!-- TEXTE PRINCIPAL -->
       <p class="post-binaire-texte apropos-texte">
         Né·e entre deux pays, deux siècles — deux millénaires même — pile le jour de l’équinoxe de printemps — à plus ou moins quarante-huit heures, fran· a pris l’habitude de se tenir dans les marges, « parce qu’on y respire mieux », dit-iel. Auteur..ice, performeur·euse et bricoleur·euse d’utopies portatives, iel écrit des poèmes, du théâtre et des formes hybrides qui célèbrent la douceur, la révolte et les désordres nécessaires.
         <br><br>
@@ -55,8 +113,22 @@
 
     </div>
 
-  
+  </div>
 
+  <!-- === POST-IT FLOTTANT FERMABLE === -->
+  <div id="postit-pop">
+    <div class="postit-bar">
+      <button id="close-postit">×</button>
+    </div>
+
+    <div class="postit-content">
+      Je suis une fouille du·de la reine sans monarque
+      <br><br>
+      Je suis une conteuse d’une révolution dont on ne connaît pas l’issue mais qui aura besoin de joie et de force pour ne pas mourir sous les nécropolitiques.
+      <span class="postit-source">
+        in <span class="normal">Je ne suis personne mais un chœur de bacchantes intergalactiques</span>, contre-agence spatiale, 2024
+      </span>
+    </div>
   </div>
 
   <div id="footer-placeholder"></div>
@@ -67,6 +139,13 @@
       .then(html => {
         document.getElementById("footer-placeholder").innerHTML = html;
       });
+  </script>
+
+  <!-- JS FERMETURE POST-IT -->
+  <script>
+    document.getElementById("close-postit").addEventListener("click", function () {
+      document.getElementById("postit-pop").style.display = "none";
+    });
   </script>
 
 </body>
