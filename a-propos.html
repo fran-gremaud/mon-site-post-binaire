@@ -154,6 +154,58 @@
       document.getElementById("postit-pop").style.display = "none";
     });
   </script>
+<script>
+(function () {
+  const postit = document.getElementById("postit-pop");
+  if (!postit) return;
+
+  let isDragging = false;
+  let startX, startY, startLeft, startTop;
+
+  function startDrag(e) {
+    isDragging = true;
+    postit.classList.add("dragging");
+
+    const evt = e.touches ? e.touches[0] : e;
+    startX = evt.clientX;
+    startY = evt.clientY;
+
+    const rect = postit.getBoundingClientRect();
+    startLeft = rect.left + window.scrollX;
+    startTop  = rect.top  + window.scrollY;
+
+    document.addEventListener("mousemove", drag);
+    document.addEventListener("mouseup", stopDrag);
+    document.addEventListener("touchmove", drag);
+    document.addEventListener("touchend", stopDrag);
+  }
+
+  function drag(e) {
+    if (!isDragging) return;
+
+    const evt = e.touches ? e.touches[0] : e;
+    const dx = evt.clientX - startX;
+    const dy = evt.clientY - startY;
+
+    postit.style.left = startLeft + dx + "px";
+    postit.style.top  = startTop  + dy + "px";
+    postit.style.right = "auto"; // désactive l’ancrage droit
+  }
+
+  function stopDrag() {
+    isDragging = false;
+    postit.classList.remove("dragging");
+
+    document.removeEventListener("mousemove", drag);
+    document.removeEventListener("mouseup", stopDrag);
+    document.removeEventListener("touchmove", drag);
+    document.removeEventListener("touchend", stopDrag);
+  }
+
+  postit.addEventListener("mousedown", startDrag);
+  postit.addEventListener("touchstart", startDrag);
+})();
+</script>
 
 </body>
 </html>
